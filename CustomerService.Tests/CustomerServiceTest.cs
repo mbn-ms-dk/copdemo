@@ -2,7 +2,7 @@
 using Customers;
 using Testcontainers.PostgreSql;
 
-namespace CustomerService.Tests;
+namespace Customers.Tests;
 
 public sealed class CustomerServiceTest : IAsyncLifetime
 {
