@@ -14,6 +14,7 @@ public sealed class CustomerService
 
     private void CreateCustomersTable()
     {
+        Logger.LogInformation("Creating customers table");
         using var connection = _dbConnectionProvider.GetConnection();
         using var command = connection.CreateCommand();
         command.CommandText= "CREATE TABLE IF NOT EXISTS customers (id BIGINT NOT NULL, first_name TEXT NOT NULL, last_name TEXT, email TEXT NOT NULL,  PRIMARY KEY (id))";
@@ -24,6 +25,7 @@ public sealed class CustomerService
     //Create Ienumerable<Customer> GetCustomers() 
     public IEnumerable<Customer> GetCustomers()
     {
+        Logger.LogInformation("Getting customers");
         var customers = new List<Customer>();
         using var connection = _dbConnectionProvider.GetConnection();
         using var command =  connection.CreateCommand();
@@ -44,6 +46,8 @@ public sealed class CustomerService
     //Create method to Create Customer with Customer as parameter
     public void CreateCustomer(Customer customer)
     {
+        LOgger.LogInformation("$Creating customer with id {customer.Id} and " +
+            $"email {customer.Email}");
         using var connection = _dbConnectionProvider.GetConnection();
         using var command = connection.CreateCommand();
         command.CommandText = "INSERT INTO customers (id, first_name, last_name, email) VALUES (@id, @first_name, @last_name, @email)";
