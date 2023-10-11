@@ -1,4 +1,5 @@
 using Npgsql;
+using Microsoft.Extensions.Logging;
 
 namespace Customers;
 
@@ -11,13 +12,12 @@ public sealed class CustomerService
         _dbConnectionProvider = dbConnectionProvider;
         CreateCustomersTable();
     }
-
     private void CreateCustomersTable()
     {
-        Logger.LogInformation("Creating customers table");
+        Console.WriteLine("Creating customers table");
         using var connection = _dbConnectionProvider.GetConnection();
         using var command = connection.CreateCommand();
-        command.CommandText= "CREATE TABLE IF NOT EXISTS customers (id BIGINT NOT NULL, first_name TEXT NOT NULL, last_name TEXT, email TEXT NOT NULL,  PRIMARY KEY (id))";
+        command.CommandText = "CREATE TABLE IF NOT EXISTS customers (id BIGINT NOT NULL, first_name TEXT NOT NULL, last_name TEXT, email TEXT NOT NULL,  PRIMARY KEY (id))";
         command.Connection?.Open();
         command.ExecuteNonQuery();
     }
@@ -25,10 +25,10 @@ public sealed class CustomerService
     //Create Ienumerable<Customer> GetCustomers() 
     public IEnumerable<Customer> GetCustomers()
     {
-        Logger.LogInformation("Getting customers");
+        Console.WriteLine("Getting customers");
         var customers = new List<Customer>();
         using var connection = _dbConnectionProvider.GetConnection();
-        using var command =  connection.CreateCommand();
+        using var command = connection.CreateCommand();
         command.CommandText = "SELECT id, first_name, last_name, email FROM customers";
         command.Connection?.Open();
         using var reader = command.ExecuteReader();
@@ -46,7 +46,7 @@ public sealed class CustomerService
     //Create method to Create Customer with Customer as parameter
     public void CreateCustomer(Customer customer)
     {
-        LOgger.LogInformation("$Creating customer with id {customer.Id} and " +
+        Console.WriteLine("$Creating customer with id {customer.Id} and " +
             $"email {customer.Email}");
         using var connection = _dbConnectionProvider.GetConnection();
         using var command = connection.CreateCommand();
