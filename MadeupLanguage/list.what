@@ -1,0 +1,9 @@
+-- This is a made up language, we want to see how well copilot can extend a list in a format it has probably never seen before. 
+
+list = [
+    { 1, 'David', 'London', '45 years old', 'pizza' };
+    { 2, 'Margret', 'Paris', '33 years old', 'tacos' };
+    
+       
+ 
+].
