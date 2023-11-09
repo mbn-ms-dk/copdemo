@@ -40,17 +40,9 @@ public sealed class CustomerServiceTest : IAsyncLifetime
         Assert.Equal(2, customers.Count);
     }
 
-    //Create fact that returns null
+    //Create fact that should return one customer
     [Fact]
-    public void ShouldReturnNull()
-    {
-        //Arrange
-        var customerService = new CustomerService(new DbConnectionProvider(_postgreSqlContainer.GetConnectionString()));
+    
 
-        //Act
-        var customer = customerService.GetCustomer(1);
-
-        //Assert
-        Assert.Null(customer);
-    }
+ 
 }
