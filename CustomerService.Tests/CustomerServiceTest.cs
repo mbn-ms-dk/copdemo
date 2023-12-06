@@ -1,5 +1,3 @@
-
-using Customers;
 using Testcontainers.PostgreSql;
 
 namespace Customers.Tests;
@@ -28,13 +26,6 @@ public sealed class CustomerServiceTest : IAsyncLifetime
         //Arrange
         var customerService = new CustomerService(new DbConnectionProvider(_postgreSqlContainer.GetConnectionString()));
 
-        /// <summary>
-        /// Creates a new instance of the Customer class with the specified properties.
-        /// </summary>
-        /// <param name="id">The ID of the customer.</param>
-        /// <param name="firstName">The first name of the customer.</param>
-        /// <param name="lastName">The last name of the customer.</param>
-        /// <param name="email">The email address of the customer.</param>
         var customer1 = new Customer(1, "John", "Doe", "john@sample.com");
         var customer2 = new Customer(2, "Jane", "Doe", "jane@sample.com");
 
