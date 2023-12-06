@@ -46,12 +46,4 @@ public sealed class CustomerServiceTest : IAsyncLifetime
         var customers = customerService.GetCustomers().ToList();
         Assert.Equal(2, customers.Count);
     }
-
-
-    //Create fact that should return one customer
-
-    [Fact]
-    
-
- 
 }
