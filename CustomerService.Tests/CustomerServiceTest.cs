@@ -37,4 +37,13 @@ public sealed class CustomerServiceTest : IAsyncLifetime
         var customers = customerService.GetCustomers().ToList();
         Assert.Equal(2, customers.Count);
     }
+
+    //create fact that fails with one customer
+    [Fact]
+    public void ShouldFailWithOneCustomer()
+    {
+        //Arrange
+        var customerService = new CustomerService(new DbConnectionProvider(_postgreSqlContainer.GetConnectionString()));
+
+        var customer1 = new Customer(1, "John", "Doe", "");
 }
