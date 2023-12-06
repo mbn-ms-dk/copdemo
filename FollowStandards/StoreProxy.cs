@@ -6,8 +6,7 @@ public class StoreProxy
 {
     const string baseUrl = "https://petstore.swagger.io/v2";
     static HttpClient client = new HttpClient();
- 
- //handle the response
+
     static public async Task<string> GetOrder(int id)
     {
         string order = string.Empty;
