@@ -15,6 +15,16 @@ public class PetProxy
         {
             pet = await response.Content.ReadAsStringAsync();
         }
-        return pet;
+        else if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            pet = "Pet not found";
+        }
+        else
+        {
+            pet = "Error retrieving pet";
+        }
+        
+
+      
     }
 }

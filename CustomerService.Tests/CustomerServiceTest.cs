@@ -37,4 +37,18 @@ public sealed class CustomerServiceTest : IAsyncLifetime
         var customers = customerService.GetCustomers().ToList();
         Assert.Equal(2, customers.Count);
     }
+
+    //Create fact that should return no customers
+    [Fact]
+    public void ShouldReturnNoCustomers()
+    {
+        //Arrange
+        var customerService = new CustomerService(new DbConnectionProvider(_postgreSqlContainer.GetConnectionString()));
+
+        //Act
+        var customers = customerService.GetCustomers().ToList();
+
+        //Assert
+        Assert.Empty(customers);
+    }
 }
