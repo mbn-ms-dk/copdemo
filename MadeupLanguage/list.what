@@ -3,7 +3,5 @@
 list = [
     { 1, 'David', 'London', '45 years old', 'pizza' };
     { 2, 'Margret', 'Paris', '33 years old', 'tacos' };
-    
-       
  
 ].

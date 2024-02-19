@@ -1,3 +1,5 @@
+using Customers;
+
 public interface ICustomerService
 {
     void CreateCustomersTable();
