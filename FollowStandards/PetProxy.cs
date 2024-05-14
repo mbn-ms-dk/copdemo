@@ -10,11 +10,6 @@ public class PetProxy
         string pet = string.Empty;
         // Call rest api to get the pet
         HttpResponseMessage response = await client.GetAsync( $"{baseUrl}/pet/{id}");
-        //handle the response
-        if (response.IsSuccessStatusCode)
-        {
-            pet = await response.Content.ReadAsStringAsync();
-        }
-        return pet;
+        
     }
 }
