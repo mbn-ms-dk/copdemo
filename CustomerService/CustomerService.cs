@@ -22,11 +22,10 @@ public sealed class CustomerService
         command.ExecuteNonQuery();
     }
 
-    //Create Ienumerable<Customer> GetCustomers() 
+  //create method to get customers
     public IEnumerable<Customer> GetCustomers()
     {
         Console.WriteLine("Getting customers");
-        var customers = new List<Customer>();
         using var connection = _dbConnectionProvider.GetConnection();
         using var command = connection.CreateCommand();
         command.CommandText = "SELECT id, first_name, last_name, email FROM customers";
@@ -34,12 +33,13 @@ public sealed class CustomerService
         using var reader = command.ExecuteReader();
         while (reader.Read())
         {
-            yield return new Customer(
-                reader.GetInt64(0),
-                reader.GetString(1),
-                reader.GetString(2),
-                reader.GetString(3)
-            );
+            yield return new Customer
+            {
+                Id = reader.GetInt64(0),
+                FirstName = reader.GetString(1),
+                LastName = reader.GetString(2),
+                Email = reader.GetString(3)
+            };
         }
     }
 
