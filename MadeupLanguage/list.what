@@ -1,7 +1,16 @@
 -- This is a made up language, we want to see how well copilot can extend a list in a format it has probably never seen before. 
+-- We want to see if it can understand the format and extend the list with the correct syntax.
 
 list = [
     { 1, 'David', 'London', '45 years old', 'pizza' };
     { 2, 'Margret', 'Paris', '33 years old', 'tacos' };
+    { 3, 'John', 'New York', '28 years old', 'sushi' };
+    { 4, 'Sandra', 'Tokyo', '40 years old', 'pasta' };
+    { 5, 'Micheal', 'Berlin', '35 years old', 'steak' };
+    { 6, 'Linda', 'Moscow', '50 years old', 'salad' };
+    { 7, 'Peter', 'Rome', '38 years old', 'burger' };
+    { 8, 'Samantha', 'Madrid', '42 years old', 'sandwich' };
+    { 9, 'George', 'Beijing', '49 years old', 'sushi' };
+    { 10, 'Nancy', 'Istanbul', '30 years old', 'pizza' };
  
 ].

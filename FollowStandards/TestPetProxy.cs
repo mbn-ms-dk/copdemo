@@ -6,12 +6,12 @@ namespace PetTest;
 public class TestPetProxy
 {
     [TestMethod]
-    public void TestGetPet()
+    public void TestGetPet_NegativeValue()
     {
-        var json = PetProxy.GetPet(1).Result;
+        var json = PetProxy.GetPet(-1).Result;
 
         // Extract the id from the JSON string
         string petId = json.Substring(json.IndexOf("id") + 4, 1);
-        Assert.AreEqual("1", petId);
+        Assert.AreEqual("-1", petId);
     }
 }
