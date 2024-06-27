@@ -14,4 +14,5 @@ public class TestPetProxy
         string petId = json.Substring(json.IndexOf("id") + 4, 1);
         Assert.AreEqual("1", petId);
     }
-}
+
+  

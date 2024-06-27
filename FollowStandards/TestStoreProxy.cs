@@ -15,10 +15,11 @@ public class TestStoreProxy
         Assert.AreEqual("2", orderId);
     }
 
-    [TestMethod]
+       [TestMethod]
     public void TestGetOrderNegativeId()
     {
         string expectedErrorMessage = "Negative values are not allowed";
         Assert.ThrowsExceptionAsync<ArgumentException>(async () => await StoreProxy.GetOrder(-1), expectedErrorMessage);
     }
+
 }
