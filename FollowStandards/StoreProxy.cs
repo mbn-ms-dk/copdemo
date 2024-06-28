@@ -13,11 +13,10 @@ public class StoreProxy
     
         // Call rest api to get the user based on name
         HttpResponseMessage response = await client.GetAsync( $"{baseUrl}/store/order/{id}");
-    
+      
         // Check if the response is successful
         if (response.IsSuccessStatusCode)
         {
-            // Read the response content
             order = await response.Content.ReadAsStringAsync();
         }
     
